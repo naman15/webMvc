@@ -7,6 +7,6 @@
 <title>WebApp</title>
 </head>
 <body>
-	<h1>My first Servlet</h1>
+	<h1>My first Servlet by ${name}</h1>
 </body>
 </html>

@@ -38,6 +38,9 @@ public class LoginServlet extends HttpServlet {
 	{
 		try 
 		{	
+			System.out.println(request.getParameter("name"));
+			request.setAttribute("name",request.getParameter("name"));
+			System.out.println(request.getParameter("name"));
 			request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request,response);
 		}
 		catch (ServletException e) {
