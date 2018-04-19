@@ -1,9 +1,10 @@
 package com.webapp.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class LoginController 
@@ -16,10 +17,15 @@ public class LoginController
 	}
 	
 	@RequestMapping(value="/login" , method=RequestMethod.POST)
-	@ResponseBody
-	public String postloginForm()
+	public String postloginForm(@RequestParam String name, @RequestParam String Password,ModelMap model)
 	{
-		return "Hello Naman";
+		if(name.equalsIgnoreCase("Naman") && Password.equalsIgnoreCase("naman")) 
+		{
+			model.put("name", name);
+			return "welcome";
+		}
+		model.put("errorMessage", "Wrong userName and password");
+		return "login";
 	}
 	
 }

@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>Registration form of new user</h1>
-	<form action="newUser.do" method="post">
+	<form action="/spring-mvc/register" method="post">
 		Name <input type="text" name="name"/>
 		<br>
 		Password <input type="password" name="Password"/>

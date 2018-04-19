@@ -7,8 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class RegisterationController 
@@ -20,11 +22,11 @@ public class RegisterationController
 	}
 	
 	@RequestMapping(value="/register" , method=RequestMethod.POST)
-	public void registerUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	public String registerUser(@RequestParam String name, @RequestParam String Password,ModelMap model) throws ServletException, IOException
 	{
-		String name = request.getParameter("name");
-		String password = request.getParameter("Password");
-		request.getRequestDispatcher("WEB-INF/views/welcome.jsp").forward(request, response);
+		model.put("name", name);
+		model.put("password", Password);
+		return "welcome";
 	}
 	
 }
