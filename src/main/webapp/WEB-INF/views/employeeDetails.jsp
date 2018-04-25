@@ -8,10 +8,9 @@
 <title>WebApp</title>
 </head>
 <body>
-	<h1>Welcome</h1>
-	<br>
-	<p>
-		<a href="${pageContext.request.contextPath}/getAllEmployees"><b>Get All Employees</b></a>
-	<p>
+	<h1><b>Employee Details</b></h1>
+	<c:forEach var="employee" items="${employeeList}">
+		<c:out value="${employee}"></c:out>
+	</c:forEach>
 </body>
 </html>
